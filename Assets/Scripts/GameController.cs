@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class GameController: MonoBehaviour
 {
     public Text[] buttonList;
-    
+    string playerSide;
+
     void Awake() {
+        playerSide = "X";
         SetGameControllerReferenceOnButtons();
     }
 
@@ -19,11 +21,11 @@ public class GameController: MonoBehaviour
     }
 
     public string GetPlayerSide() {
-        return "?";
+        return playerSide;
     }
 
     public void EndTurn () {
-        Debug.Log("EndTurn is not implemented!");
+        playerSide = GetPlayerSide() == "X" ? "O" : "X";
     }
 
 }
