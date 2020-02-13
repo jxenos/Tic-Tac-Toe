@@ -50,7 +50,7 @@ public class GameController: MonoBehaviour
 
         if (++turn > 8)
         {
-            Debug.Log("Draw");
+            DrawGame();
         }
 
         ChangePlayerSide();
@@ -67,7 +67,11 @@ public class GameController: MonoBehaviour
         //win game
         gameOverPanel.SetActive(true);
         gameOverText.text = playerSide + " Wins!";
-        Debug.Log("win game");
+    }
 
+    public void DrawGame()
+    {
+        gameOverPanel.SetActive(true);
+        gameOverText.text = "Draw Game";
     }
 }
