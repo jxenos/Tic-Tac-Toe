@@ -25,25 +25,24 @@ public class GameController: MonoBehaviour
     }
 
     public void EndTurn () {
-        playerSide = GetPlayerSide() == "X" ? "O" : "X";
         //  check for win
         //[0,1,2]
         //[3,4,5]
         //[6,7,8]
-        Debug.Log(buttonList[0].text);
-        if ((buttonList[0].text == buttonList[1].text == buttonList[2].text) ||
-            (buttonList[3].text == buttonList[4].text == buttonList[5].text) ||
-            (buttonList[6].text == buttonList[7].text == buttonList[8].text) ||
-            (buttonList[0].text == buttonList[3].text == buttonList[6].text) ||
-            (buttonList[1].text == buttonList[4].text == buttonList[7].text) ||
-            (buttonList[2].text == buttonList[5].text == buttonList[8].text) ||
-            (buttonList[0].text == buttonList[4].text == buttonList[8].text) ||
-            (buttonList[2].text == buttonList[4].text == buttonList[6].text))
+        if ((buttonList[0].text == playerSide && buttonList[1].text == playerSide && buttonList[2].text == playerSide) ||
+            (buttonList[3].text == playerSide && buttonList[4].text == playerSide && buttonList[5].text == playerSide) ||
+            (buttonList[6].text == playerSide && buttonList[7].text == playerSide && buttonList[8].text == playerSide) ||
+            (buttonList[0].text == playerSide && buttonList[3].text == playerSide && buttonList[6].text == playerSide) ||
+            (buttonList[1].text == playerSide && buttonList[4].text == playerSide && buttonList[7].text == playerSide) ||
+            (buttonList[2].text == playerSide && buttonList[5].text == playerSide && buttonList[8].text == playerSide) ||
+            (buttonList[0].text == playerSide && buttonList[4].text == playerSide && buttonList[8].text == playerSide) ||
+            (buttonList[2].text == playerSide && buttonList[4].text == playerSide && buttonList[6].text == playerSide))
         {
             //win game
             Debug.Log("win game");
         }
-        
+
+        playerSide = GetPlayerSide() == "X" ? "O" : "X";
     }
 
 }
